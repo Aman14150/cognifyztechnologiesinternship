@@ -1,0 +1,52 @@
+<!-- Level 3
+Task 1
+Image Manipulation:
+
+Use CSS to create a basic image gallery
+with thumbnail images that enlarge
+when clicked.
+
+Implement a simple image slideshow
+that automatically transitions between
+images using HTML and CSS. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery with Thumbnails</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <style>
+        /* Styles for the image gallery */
+    </style> -->
+</head>
+
+<body>
+
+    <div class="gallery">
+        <img class="thumbnail" src="assets/download - Copy (2).jfif" onclick="enlargeImage('image1.jpg')" alt="Image 1">
+        <img class="thumbnail" src="assets/download - Copy.jfif" onclick="enlargeImage('image2.jpg')" alt="Image 2">
+        <img class="thumbnail" src="assets/download.jfif" onclick="enlargeImage('image3.jpg')" alt="Image 3">
+        <!-- Add more thumbnails as needed -->
+    </div>
+
+    <div class="enlarged-image" onclick="hideImage()">
+        <img id="enlarged-img" src="assets/download.jfif" alt="Enlarged Image">
+    </div>
+
+    <script>
+        function enlargeImage(src) {
+            var enlargedImage = document.getElementById('enlarged-img');
+            enlargedImage.src = src;
+            document.querySelector('.enlarged-image').style.display = 'flex';
+        }
+
+        function hideImage() {
+            document.querySelector('.enlarged-image').style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>

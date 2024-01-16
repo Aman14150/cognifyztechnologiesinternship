@@ -1,0 +1,74 @@
+<!--Level 1
+  
+  Task 2
+
+1.Basic Button that Changes Color when Clicked: -->
+<!-- 2.Alert Box that Displays a Greeting Message Based on Current Time: -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changing Button</title>
+    <style>
+        #colorButton {
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="colorButton" onclick="changeColor()">Click me to change color</button>
+    <input type="text" id="num1" placeholder="Enter number 1">
+    <input type="text" id="num2" placeholder="Enter number 2">
+    <button onclick="calculate()">Add</button>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                var result = num1 + num2;
+                document.getElementById('result').innerText = 'Result: ' + result;
+            } else {
+                document.getElementById('result').innerText = 'Please enter valid numbers';
+            }
+        }
+        function changeColor() {
+            var button = document.getElementById('colorButton');
+            button.style.backgroundColor = getRandomColor();
+        }
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+
+        var greeting;
+
+        if (hours < 12) {
+            greeting = 'Good morning!';
+        } else if (hours < 18) {
+            greeting = 'Good afternoon!';
+        } else {
+            greeting = 'Good evening!';
+        }
+
+        alert(greeting);
+    </script>
+</body>
+
+</html>
